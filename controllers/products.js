@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const { Router } = require('express');
 const express = require('express');
+const Product = require('../models/Product.js')
 
 // Initialize
 const router = express.Router();

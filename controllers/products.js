@@ -11,15 +11,14 @@ const router = express.Router();
 // Index
 router.get('/', async (req, res) => {
     try {
-        
+        res.json(await Product.find({}));
     } catch (error) {
-        console.log('error: ', error);
-        res.send({error: 'something went wrong - check console'});
+        res.status(400).json(error);
     }
 });
 
 // Create
-router.post('/products', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         
     } catch (error) {

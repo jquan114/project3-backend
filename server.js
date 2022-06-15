@@ -18,17 +18,13 @@ mongoose.connection
     .on("close", () => console.log("mongoose disconnected"))
     .on("error", (error) => console.log(error))
 
-// Middleware
+// middleware
 app.use(cors());
 app.use(morgan('dev'));
 
-// CONTROLLER
+// routes and controllers
+app.get('/', (req, res) => res.send('This is the General Store'));
 app.use('/store', productsController);
-
-app.get('/', (req, res) => {
-    res.send('This is the General Store');
-});
-
 
 // Listener
 app.listen(PORT, () => console.log(`Listening...`));

@@ -6,6 +6,15 @@ const Product = require('../models/Product.js')
 // Initialize
 const router = express.Router();
 
+// Seed
+const productSeed = require('../models/ProductSeed');
+router.get('/seed', (req, res) => {
+    Product.deleteMany({}, (error, allProducts) => {});
+    Product.create(productSeed, (error, data) => {
+        res.redirect('/products')
+    });
+});
+
 // ROUTES
 
 // Index

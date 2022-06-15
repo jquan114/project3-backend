@@ -24,7 +24,7 @@ app.use(morgan('dev'));
 
 // routes and controllers
 app.get('/', (req, res) => res.send('This is the General Store'));
-app.use('/store', productsController);
+app.use('/products', productsController);
 
 // Listener
 app.listen(PORT, () => console.log(`Listening...`));

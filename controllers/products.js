@@ -11,15 +11,14 @@ const router = express.Router();
 // Index
 router.get('/', async (req, res) => {
     try {
-        
+        res.json(await Product.find({}));
     } catch (error) {
-        console.log('error: ', error);
-        res.send({error: 'something went wrong - check console'});
+        res.status(400).json(error);
     }
 });
 
 // Create
-router.post('/products', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         
     } catch (error) {
@@ -29,7 +28,7 @@ router.post('/products', async (req, res) => {
 });
 
 // Delete
-router.delete('/products/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
 
     } catch (error) {
@@ -39,7 +38,7 @@ router.delete('/products/:id', async (req, res) => {
 });
 
 // Update
-router.put('/products/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
 
     } catch (error) {

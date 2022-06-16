@@ -54,4 +54,14 @@ router.put('/:id', async (req, res) => {
     }
 });
 
+// Show
+router.get('/:id', async (req, res) => {
+    try {
+        res.json(await Product.findById(req.params.id))
+    } catch (error) {
+        console.log('error: ', error);
+        res.send({error: 'something went wrong - check console'});
+    }
+});
+
 module.exports = router;

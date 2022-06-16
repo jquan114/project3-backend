@@ -16,7 +16,6 @@ const router = express.Router();
 // });
 
 // ROUTES
-
 // Index
 router.get('/', async (req, res) => {
     try {
@@ -39,10 +38,9 @@ router.post('/', async (req, res) => {
 // Delete
 router.delete('/:id', async (req, res) => {
     try {
-
+        res.json(await Product.findByIdAndDelete(req.params.id))
     } catch (error) {
-        console.log('error: ', error);
-        res.send({error: 'something went wrong - check console'});
+        res.status(400).json(error);
     }
 });
 

@@ -28,10 +28,9 @@ router.get('/', async (req, res) => {
 // Create
 router.post('/', async (req, res) => {
     try {
-        
+        res.json(await Product.create(req.body))
     } catch (error) {
-        console.log('error: ', error);
-        res.send({error: 'something went wrong - check console'});
+        res.status(400).json(error);
     }
 });
 
@@ -65,5 +64,5 @@ router.get('/:id', async (req, res) => {
         res.send({error: 'something went wrong - check console'});
     }
 });
-
+ 
 module.exports = router;

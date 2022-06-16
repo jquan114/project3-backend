@@ -22,6 +22,7 @@ mongoose.connection
 // middleware
 app.use(cors());
 app.use(morgan('dev'));
+app.use(express.json());
 
 // routes and controllers
 app.get('/', (req, res) => res.send('This is the General Store'));

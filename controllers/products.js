@@ -47,7 +47,9 @@ router.delete('/:id', async (req, res) => {
 // Update
 router.put('/:id', async (req, res) => {
     try {
-
+        res.json(
+            await Product.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        );
     } catch (error) {
         console.log('error: ', error);
         res.send({error: 'something went wrong - check console'});

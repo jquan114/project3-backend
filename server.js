@@ -15,7 +15,7 @@ const productsController = require('./controllers/products');
 // mongodb connection
 mongoose.connect(MONGO_URL)
 mongoose.connection
-    .on("open", () => console.log("mongoose connected"))
+    .on("open", () => console.log(MONGO_URL))
     .on("close", () => console.log("mongoose disconnected"))
     .on("error", (error) => console.log(error))
 

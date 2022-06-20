@@ -2,6 +2,7 @@
 require('dotenv').config();
 const PORT = process.env.PORT;
 const MONGO_URL = process.env.MONGO_URL;
+
 // dependencies
 const express = require('express');
 const app = express();

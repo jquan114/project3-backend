@@ -9,6 +9,7 @@ const app = express();
 const cors = require('cors')
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const admin = require('firebase-admin');
 
 // models and controllers
 const productsController = require('./controllers/products');
@@ -19,6 +20,11 @@ mongoose.connection
     .on("open", () => console.log("mongoose connected"))
     .on("close", () => console.log("mongoose disconnected"))
     .on("error", (error) => console.log(error))
+
+// firebase admin token
+admin.initializeApp({
+    credential: admin.credential.cert(require('./firebase-service-key.json'))
+});
 
 // middleware
 app.use(cors());

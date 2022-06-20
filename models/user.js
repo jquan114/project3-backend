@@ -6,7 +6,7 @@ const userSchema = new Schema(
         email: String,
         password: Number,
         name: String,
-        authId: String,
+        authId: String, // uid from google firebase auth JWT
     },
 );
 

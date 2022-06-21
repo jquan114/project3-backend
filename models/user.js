@@ -4,10 +4,11 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema(
     {
         email: String,
-        password: Number,
+        password: String,
         name: String,
-        authId: String, // uid from google firebase auth JWT
+        uid: String, // uid from google firebase auth JWT
     },
+    { timestamps }
 );
 
 const User = mongoose.model('User', userSchema);

@@ -13,6 +13,7 @@ const admin = require('firebase-admin');
 
 // models and controllers
 const productsController = require('./controllers/products');
+const usersController = require('./controllers/users')
 
 // mongodb connection
 mongoose.connect(MONGO_URL)
@@ -34,10 +35,12 @@ app.use(express.json());
 // custom firebase middleware function
 app.use(async (req, res, next) => {
     const token = req.get('Authorization')
+    console.log(token)
     if (token) {
         try {
             const user = await admin.auth().verifyIdToken(token.replace('Bearer ', ''))
             req.user = user;
+            console.log(user)
         } catch (error) {
             req.user = null
         }
@@ -48,6 +51,7 @@ app.use(async (req, res, next) => {
 // routes and controllers
 app.get('/', (req, res) => res.send('This is the General Store'));
 app.use('/products', productsController);
+app.use('/users', usersController);
 
 // Listener
 app.listen(PORT, () => console.log(`Listening...`));

@@ -1,6 +1,6 @@
 // env vars
 require('dotenv').config();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT;
 const MONGO_URL = process.env.MONGO_URL;
 
 // dependencies

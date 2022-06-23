@@ -23,12 +23,9 @@ mongoose.connection
     .on("error", (error) => console.log(error))
 
 // firebase admin token
+const serviceAccount = JSON.parse(process.env.GOOGLE_CREDS);
 admin.initializeApp({
-    credential: admin.credential.cert({
-        "projectId": process.env.FIREBASE_PROJECT_ID,
-        "private_key": process.env.FIREBASE_PRIVATE_KEY,
-        "client_email": process.env.FIREBASE_CLIENT_EMAIL,
-    }),
+  credential: admin.credential.cert(serviceAccount)
 });
 
 // middleware

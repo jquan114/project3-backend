@@ -13,7 +13,7 @@ const admin = require('firebase-admin');
 
 // models and controllers
 const productsController = require('./controllers/products');
-const usersController = require('./controllers/users')
+const usersController = require('./controllers/users');
 
 // mongodb connection
 mongoose.connect(MONGO_URL)
@@ -23,8 +23,9 @@ mongoose.connection
     .on("error", (error) => console.log(error))
 
 // firebase admin token
+const serviceAccount = JSON.parse(process.env.GOOGLE_CREDS);
 admin.initializeApp({
-    credential: admin.credential.cert(require('./firebase-service-key.json'))
+  credential: admin.credential.cert(serviceAccount)
 });
 
 // middleware

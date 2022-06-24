@@ -9,7 +9,7 @@
 
 ## Check out the App!
 
-[APP LINK]([https://62b4b7f332a5380352d1910a--quiet-sunshine-ae45f8.netlify.app/])
+[APP LINK](https://generalstoregs.netlify.app/)
 
   ## Technologies used
   
